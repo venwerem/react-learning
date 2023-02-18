@@ -21,22 +21,40 @@ import './App.css';
 
 
 const App = () => {
-  const [value, setValue] = useState(5)
+  const [answer, setAnswer] = useState(0)
+  const [number1, setNumber1] = useState(0)
+  const [number2, setNumber2] = useState(0)
+  const [calculation, setCalculation] = useState('')
 
-  const handleSubstraction = () => {
-    setValue(value - 1)
-  }
 
   const handleAddition = () => {
-    setValue(value + 1)
+   setCalculation('+')
+  }
+
+  const handleResult = () => {
+   if(calculation === '+') {
+    const result = number1 + number2;
+    setAnswer(result)
+   }
+  }
+
+  const handleButton1 = () => {
+    setNumber1(1)
+  }
+
+  const handleButton2 = () => {
+    setNumber2(2)
   }
 
 
   return (
   <div>
-    <p>{value}</p>
-    <button onClick={handleSubstraction}>-</button>
+    <p>{answer}</p>
+  
+    <button onClick={handleButton1}>1</button>
     <button onClick={handleAddition}>+</button>
+    <button onClick={handleButton2}>2</button>
+    <button onClick={handleResult}>=</button>
   </div>)
 }
 
