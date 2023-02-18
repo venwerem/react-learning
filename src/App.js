@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import './App.css';
 
 // This is called a fragment in React
-{/* <></> */}
+//{/* <></> */}
 
 // React Life cycle
 
@@ -31,9 +31,19 @@ const App = () => {
    setCalculation('+')
   }
 
+  const handleSubtraction = () =>{
+    setCalculation('-')
+  }
+
   const handleResult = () => {
    if(calculation === '+') {
     const result = number1 + number2;
+  
+    setAnswer(result)
+   }
+   
+   if(calculation === '-'){
+    const result = number1 - number2;
     setAnswer(result)
    }
   }
@@ -53,8 +63,11 @@ const App = () => {
   
     <button onClick={handleButton1}>1</button>
     <button onClick={handleAddition}>+</button>
+    <button onClick={handleSubtraction}>-</button>
     <button onClick={handleButton2}>2</button>
     <button onClick={handleResult}>=</button>
+    <br/>
+    
   </div>)
 }
 
