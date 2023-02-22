@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import React, {useState} from 'react';
 import './App.css';
 
@@ -21,10 +21,15 @@ import './App.css';
 
 
 const App = () => {
-  const [answer, setAnswer] = useState(0)
-  const [number1, setNumber1] = useState(0)
-  const [number2, setNumber2] = useState(0)
+  //const [answer, setAnswer] = useState(0)
+  const [value, setvalue] = useState(0)
+  //const [secondValue, setsecondValue] = useState(0)
   const [calculation, setCalculation] = useState('')
+
+  const handleButton= (secondvalue)=>
+  {
+    setvalue(value + secondvalue);
+  }
 
 
   const handleAddition = () => {
@@ -37,34 +42,42 @@ const App = () => {
 
   const handleResult = () => {
    if(calculation === '+') {
-    const result = number1 + number2;
+    //const result = value + secondValue;
   
-    setAnswer(result)
+    //setAnswer(result)
    }
    
    if(calculation === '-'){
-    const result = number1 - number2;
-    setAnswer(result)
+    //const result = value - secondValue;
+    //setAnswer(result)
    }
   }
 
-  const handleButton1 = () => {
-    setNumber1(1)
-  }
+  
 
-  const handleButton2 = () => {
-    setNumber2(2)
-  }
+  
 
 
   return (
   <div>
-    <p>{answer}</p>
+    <p>{}</p>
   
-    <button onClick={handleButton1}>1</button>
-    <button onClick={handleAddition}>+</button>
+    <button onClick={handleButton(1)}>1</button>
+    <button onClick={handleButton(2)}>2</button>
+    <button onClick={handleButton(3)}>3</button>
+    <br/>
+    <button onClick={handleButton(4)}>4</button>
+    <button onClick={handleButton(5)}>5</button>
+    <button onClick={handleButton(6)}>6</button>
+    <br/>
+    <button onClick={handleButton(7)}>7</button>
+    <button onClick={handleButton(8)}>8</button>
+    <button onClick={handleButton(9)}>9</button>
+    <button onClick={handleButton(0)}>0</button>
+    
     <button onClick={handleSubtraction}>-</button>
-    <button onClick={handleButton2}>2</button>
+   
+    <button onClick={handleAddition}>+</button>
     <button onClick={handleResult}>=</button>
     <br/>
     
